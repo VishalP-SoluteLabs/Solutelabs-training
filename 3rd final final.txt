@@ -1,0 +1,22 @@
+
+function tournamentWinner(competitions, results) {
+  const points = {};
+  let resIndex = 0;
+      for (let i = 0; i < competitions.length; i++) {
+    const [homeTeam, awayTeam] = competitions[i];
+    const winner = results[i] === 1 ? homeTeam : awayTeam;
+    points[winner] = (points[winner] || 0) + 3;
+  }
+  let max = 0;    
+  let maxKey = "";
+
+  for (let i in points) {
+    if (points[i] > max) {
+      max = points[i];
+      maxKey = i
+    }
+  }
+  return maxKey;
+
+}
+console.log('Winner of the tournament is:', tournamentWinner([ ["HTML", "C#"], ["C#", "Python"], ["Python", "HTML"] ], [0, 0, 1]), 'team!')

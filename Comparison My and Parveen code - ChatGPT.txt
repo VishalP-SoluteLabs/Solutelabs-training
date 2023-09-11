@@ -1,0 +1,37 @@
+which code is faster?
+1. function twoNumberSum(array, targetSum) {
+  let pairArr = [];
+  let visited_elems = []
+  for (let num of array) {
+    const diff = targetSum - num;
+    if (visited_elems.includes(diff)) {
+            pairArr.push([diff, num]);
+        }    
+        visited_elems.push(num);     // for pushing visited elements
+    }
+  return pairArr;   //returning the final sum pair array
+}
+console.log(twoNumberSum( [ 3, 5, 2, 4, 8, 11, 1, -1, 6 ], 10))
+
+
+2. function sum_pairs(array, target) {
+  let sum_pair = [];
+  loop1: for (let i = 0; i < array.length - 1; i++) {
+    loop2: for (let j = i + 1; j < array.length; j++) {
+      if (array[i] + array[j] === target) {
+        sum_pair.push(array[i], array[j]);
+        break loop1;
+      }
+    }
+  }
+  return sum_pair;
+}
+
+let output = sum_pairs([3, 2, 5, -4, 8, 11, 1, -1, 6], 10);
+console.log(output);
+
+In terms of time complexity, both functions have a worst-case time complexity of O(n^2) since they both use nested loops to compare each pair of numbers in the array.
+
+However, in terms of actual performance, the first function twoNumberSum is likely to be faster in most cases since it uses an array to keep track of visited elements and a simple check using includes() to look for the complement of the current number, whereas the second function sum_pairs uses nested loops to compare all possible pairs of numbers, which can become very slow for large arrays.
+
+Therefore, for most practical applications, the first function twoNumberSum would be the better choice in terms of performance. However, for certain cases where the array is very small or where the target sum is guaranteed to be found early in the array, the second function sum_pairs may perform better due to its early exit condition (break loop1;) which stops the search as soon as a valid pair is found.

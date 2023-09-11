@@ -1,0 +1,93 @@
+MODEL
+
+
+const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
+
+// Connect to the MongoDB database
+mongoose.connect('mongodb://localhost/myproject', { useNewUrlParser: true });
+
+// Create a Mongoose schema for the refresh token
+const refreshTokenSchema = new mongoose.Schema({
+  userId: { type: mongoose.Schema.Types.ObjectId, required: true },
+  refreshToken: { type: String, required: true },
+  expirationTime: { type: Date, required: true },
+});
+
+// Create a Mongoose model for the refresh token
+const RefreshToken = mongoose.model('RefreshToken', refreshTokenSchema);
+
+// Generate a new refresh token and store it in the MongoDB database
+function generateRefreshToken(userId) {
+  const refreshToken = jwt.sign({ userId }, 'secret_key', { expiresIn: '7d' });
+  const expirationTime = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+  const refresh_token = new RefreshToken({ userId, refreshToken, expirationTime });
+  return refresh_token.save().then(() => refreshToken);
+}
+
+// Verify the refresh token against the MongoDB database
+function verifyRefreshToken(refreshToken) {
+  return RefreshToken.findOne({ refreshToken })
+    .then(refresh_token => {
+      if (!refresh_token) throw new Error('Refresh token not found');
+      if (refresh_token.expirationTime < Date.now()) throw new Error('Refresh token has expired');
+      return refresh_token.userId;
+    });
+}
+
+module.exports = {
+  generateRefreshToken,
+  verifyRefreshToken,
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTROLLER
+
+
+const express = require('express');
+const router = express.Router();
+const { generateRefreshToken, verifyRefreshToken } = require('../models/refreshToken');
+
+// Handle refresh token requests
+router.post('/refreshToken', (req, res, next) => {
+  const refreshToken = req.body.refreshToken;
+  verifyRefreshToken(refreshToken)
+    .then(userId => {
+      const accessToken = generateAccessToken(userId);
+      const newRefreshToken = generateRefreshToken(userId);
+      res.json({ accessToken, refreshToken: newRefreshToken });
+    })
+    .catch(err => {
+      res.status(401).json({ error: err.message });
+    });
+});
+
+module.exports = router;

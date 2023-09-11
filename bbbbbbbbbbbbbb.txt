@@ -1,0 +1,17 @@
+let roman = ['M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I'];
+ 
+let val = [1000,900,500,400,100,90,50,40,10,9,5,4,1];
+
+function intToRoman(num){
+    let intRoman = '';
+    
+    for(let i=1; num; i++){
+        while(num >= val[i]){
+            intRoman += roman[i];
+            num -= val[i]
+        }
+    }
+    return intRoman;
+}
+
+console.log(intToRoman(56))

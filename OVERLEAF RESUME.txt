@@ -1,0 +1,94 @@
+\documentclass{resume} % Use the custom resume.cls style
+
+\usepackage[left=0.4 in,top=0.4in,right=0.4 in,bottom=0.4in]{geometry} % Document margins
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}} 
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\name{Vishal Pansuriya} % Your name
+% You can merge both of these into a single line, if you do not have a website.
+\address{+91 9512844295 \\ Ahmedabad, Gujarat, IN} 
+\address{\href{mailto:contact@faangpath.com}{pansuriyavishal1308@gmail.com} \\ \href{https://www.linkedin.com/in/vishal-pansuriya-284365234/}{LinkedIn}\\
+\href{https://github.com/VishalP-SoluteLabs}{Github}\\
+\href{https://vishal-fullstack-web-developer.netlify.app}{Portfolio}}%
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+
+{\bf Bachelor of Engineering}, V.V.P Engineering College \hfill {2019 - 2023}\\
+Major in Information Technology with CGPA:- 9.22/10
+%Minor in Linguistics \smallskip \\
+%Member of Eta Kappa Nu \\
+%Member of Upsilon Pi Epsilon \\
+
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+% TECHINICAL STRENGTHS	
+%----------------------------------------------------------------------------------------
+\begin{rSection}{SKILLS}
+
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+Technical Skills & JavaScript, Node.js, Express.js, React.js, MongoDB, PostgreSQL, HTML/CSS, TypeScript,\\
+                & Nest.js, GraphQL, Docker, Hasura
+\\
+Soft Skills & Adaptability, Teamwork, Time management, Continuous learner
+\end{tabular}
+\end{rSection}
+
+\begin{rSection}{EXPERIENCE}
+
+\textbf{Backend Developer -Intern} \hfill Jan 2023 - July 2023\\
+Solute TechnoLabs LLP \hfill \textit{Ahmedabad, India}
+ \begin{itemize}
+    \itemsep -3pt {} 
+     \item Worked on advanced JavaScript frameworks  like Node.js,Typescript,Nest.js, and advanced Database like PostgreSQL,MongoDB, and APIs like Rest and  GraphQL.
+.
+     \item Worked on the development of web applications using Node.js  server side Scripting and built a scalable API using Nest.js and worked on migration of Node.js application to Nest.js and MongoDB\textbf{} database to PostgreSQL using necessary ORM.
+ \end{itemize}
+
+\end{rSection} 
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{PROJECTS}
+\vspace{-1.25em}
+\item \textbf{E-Commerce Web App. }$|${ Node.js, Express.js, MongoDB, Stripe \hspace{0.1cm}}$|${\hspace{0.4cm} \href{https://github.com/VishalP-SoluteLabs/node-shop-app-deploy}{\textbf{Source Code}}} 
+\begin{itemize}
+\item Developed a full stack web application that helped users to purchase  products online and worked on authentication and authorization by splitting applications according to role users and in order to provide security to application implemented JWT token based authentication.
+\item To ease the whole process of product buying and manual onsite transactions, implemented a payment gateway that helped users to pay from the web application itself, in result this system  is about \textbf{30-40\%} faster than the conventional systems.
+
+\end{itemize}
+\item \textbf{Outlet Management.}$|${ Node.js, MongoDB, Nest.js, TypeORM, PostgreSQL \hspace{0.1cm}}$|${\hspace{0.4cm} \href{https://github.com/VishalP-SoluteLabs/Outlet-Management---NodeJs}{\textbf{Node.js Code}} \hspace{0.1cm}}$|${\hspace{0.2cm} \href{https://github.com/VishalP-SoluteLabs/Outlet-Management---NestJs}{\textbf{Nest.js Code}}} 
+\begin{itemize}
+\item Developed  full working REST API for outlet store and worked on role based authentication using JWT tokens and split the role such as Outlet manager, admin, and manager according to working and authorization. 
+
+\item Developed various relationships between databases to store the complete data and used MongoDB as a database and Node.js as server-side scripting.
+\end{itemize}
+\item \textbf{NoteZipper.}$|${ Node.js, Express.js, React.js, MongoDB, Redux \hspace{0.1cm}}$|${\hspace{0.4cm} \href{https://github.com/VishalP-SoluteLabs/NoteZipper---MERN}{\textbf{Source Code}}} 
+\begin{itemize}
+\item Developed a full stack web application that helps users to write notes and save it up for their future reference
+\item The application allows user to Signup/Login to their account, create new notes, edit notes or delete a note and in order to secure user data I have used JWT token based authentication.
+
+\end{itemize}
+\end{rSection} 
+
+%----------------------------------------------------------------------------------------
+\begin{rSection}{Extra-Curricular Activities} 
+\begin{itemize}
+    \item 	As a Cyber Security club coordinator, I helped juniors learn about digital security and avoid exploitations. We won first prize in a group debate organized by Rajkot Police. 
+    \item	During my college years, I dedicated four years as an NSS Volunteer, providing assistance to those in need. I also led awareness campaigns in impoverished areas for one year.
+\end{itemize}
+
+
+\end{rSection}
+
+
+\end{document}
+    
