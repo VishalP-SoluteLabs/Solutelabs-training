@@ -1,0 +1,32 @@
+<%- include("../partials/header"); -%>
+
+<!-- <link rel="stylesheet" href="/css/product.css"> -->
+<link rel="stylesheet" href="/css/orders.css">
+
+</head>
+
+<body>
+    <%- include("../partials/navigation"); -%>
+    <main>
+        <% if (orders.length <= 0) { %>
+            <h1>Nothing there!</h1>
+        <% } else { %>
+            <ul class="orders">
+                <% orders.forEach(order => { %>
+                    <li class="orders__item">
+                        <h1># <%= order.id %></h1>
+                        <ul class="orders__products">
+                            <% order.products.forEach(product => { %>
+                                <li class="orders__products-item"><%= product.title %> ( <%= product.orderItem.quantity %> )
+                                    <img class="orders__products-item-img" src="<%= product.imgUrl %>" alt="<%= product.title %>" ></li>
+                                </li>
+                                
+                            <% }); %>
+                        </ul> 
+                    </li>
+                <% }); %>
+            </ul>
+        <% } %>
+    </main>
+    
+<%- include("../partials/footer") -%>
